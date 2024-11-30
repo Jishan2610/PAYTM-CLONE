@@ -130,4 +130,12 @@ const getUser = async (req, res) => {
   });
 };
 
-module.exports = { signUp, signIn, updateUser, getUser };
+///<<-----------Get Single User--------------->>
+const getSingleUser= async (req, res) => {
+  const user = await User.findOne({
+    _id: req.userId,
+  });
+  res.json(user);
+}
+
+module.exports = { signUp, signIn, updateUser, getUser , getSingleUser };

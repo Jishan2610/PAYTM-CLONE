@@ -1,6 +1,6 @@
 const express=require('express');
 const {authMiddleware}=require("../Middlewares/authMiddleware")
-const {signUp,signIn,updateUser,getUser}=require("../Controllers/user")
+const {signUp,signIn,updateUser,getUser,getSingleUser}=require("../Controllers/user")
 
 const router=express.Router();
 
@@ -17,6 +17,7 @@ router.put("/",authMiddleware,updateUser)
 
 //<<---------Get User(Filterable)---------------->>
 router.get("/bulk",authMiddleware,getUser)
-
+router.get("/getUser", authMiddleware, getSingleUser);
+  
 module.exports=router
 
